@@ -1,16 +1,19 @@
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
+import { NegotiationsView } from "../views/negotiationsView.js";
 
 export class NegotiationController {
   private inputDate: HTMLInputElement;
   private inputAmount: HTMLInputElement;
   private inputValue: HTMLInputElement;
-  private negotiations: Negotiations = new Negotiations;
+  private negotiations: Negotiations = new Negotiations();
+  private negotiationsView = new NegotiationsView('#negotiationsView');
 
   constructor() {
     this.inputDate = document.querySelector("#data");
     this.inputAmount = document.querySelector("#amount");
     this.inputValue = document.querySelector("#valor");
+    this.negotiationsView.update();
   }
 
   add(): void {
