@@ -16,7 +16,6 @@ export class NegotiationsView {
         </thead>
     </table>
     <tbody>
-
     </tbody>
     `;
   }
