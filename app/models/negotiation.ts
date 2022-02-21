@@ -9,19 +9,19 @@ export class Negotiation {
     this._value = value;
   }
 
-  get date() {
+  get date(): Date {
     return this._date;
   }
 
-  get amount() {
+  get amount(): number {
     return this._amount;
   }
 
-  get value() {
+  get value(): number {
     return this._value;
   }
 
-  get volume() {
+  get volume(): number {
     return this._amount * this._value;
   }
 }

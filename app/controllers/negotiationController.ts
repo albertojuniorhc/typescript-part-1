@@ -11,13 +11,24 @@ export class NegotiationController {
     this.inputValue = document.querySelector("#valor");
   }
 
-  add() {
+  add(): void {
+    const negotiation = this.createNegotiation();
+    console.log(negotiation);
+    this.cleanForm();
+  }
+
+  createNegotiation(): Negotiation {
     const regExp = /-/g;
     const date = new Date(this.inputDate.value.replace(regExp, ","));
     const amount = parseInt(this.inputAmount.value);
     const value = parseFloat(this.inputValue.value);
+    return new Negotiation(date, amount, value);
+  }
 
-    const negotiation = new Negotiation(date, amount, value);
-    console.log(negotiation);
+  cleanForm(): void {
+    this.inputDate.value = "";
+    this.inputAmount.value = "";
+    this.inputValue.value = "";
+    this.inputDate.focus();
   }
 }
