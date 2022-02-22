@@ -15,9 +15,8 @@ export class NegotiationController {
     add() {
         const negotiation = this.createNegotiation();
         this.negotiations.add(negotiation);
-        this.negotiationsView.update(this.negotiations);
-        this.messageView.update("Trading successfully added!");
         this.cleanForm();
+        this.updateView();
     }
     createNegotiation() {
         const regExp = /-/g;
@@ -28,8 +27,12 @@ export class NegotiationController {
     }
     cleanForm() {
         this.inputDate.value = "";
-        this.inputAmount.value = "";
-        this.inputValue.value = "";
+        this.inputAmount.value = "1";
+        this.inputValue.value = "0.0";
         this.inputDate.focus();
+    }
+    updateView() {
+        this.negotiationsView.update(this.negotiations);
+        this.messageView.update("Trading successfully added!");
     }
 }
