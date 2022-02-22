@@ -3,7 +3,13 @@ export abstract class View<T> {
   private scape = false;
 
   constructor(selector: string, scape?: boolean) {
-    this.element = document.querySelector(selector);
+    const element = document.querySelector(selector);
+    if (element){
+      this.element = element as HTMLElement;
+    } else {
+      throw Error(`Selector ${selector} did not exist on DOM`)
+    }
+    
     if (scape) {
       this.scape = scape;
     }
