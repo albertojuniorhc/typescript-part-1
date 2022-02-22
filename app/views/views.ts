@@ -2,8 +2,11 @@ export abstract class View<T> {
   protected element: HTMLElement;
   private scape = false;
 
-  constructor(selector: string, scape: boolean) {
+  constructor(selector: string, scape?: boolean) {
     this.element = document.querySelector(selector);
+    if (scape) {
+      this.scape = scape;
+    }
   }
 
   public update(model: T): void {

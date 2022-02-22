@@ -7,7 +7,7 @@ export class NegotiationController {
     constructor() {
         this.negotiations = new Negotiations();
         this.negotiationsView = new NegotiationsView("#negotiationsView", true);
-        this.messageView = new messageView("#messageView", false);
+        this.messageView = new messageView("#messageView");
         this.inputDate = document.querySelector("#data");
         this.inputAmount = document.querySelector("#amount");
         this.inputValue = document.querySelector("#valor");
