@@ -20,9 +20,14 @@ export class NegotiationController {
 
   public add(): void {
     const negotiation = this.createNegotiation();
-    this.negotiations.add(negotiation);
-    this.cleanForm();
-    this.updateView();
+    if(negotiation.date.getDay() > 0 && negotiation.date.getDay() < 6) {
+      this.negotiations.add(negotiation);
+      this.cleanForm();
+      this.updateView();
+    } else {
+      this.messageView.update('Only accept trades on working days.')
+    }
+    
   }
 
   private createNegotiation(): Negotiation {
