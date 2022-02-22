@@ -7,6 +7,8 @@ export class NegotiationController {
         this.negotiations = new Negotiations();
         this.negotiationsView = new NegotiationsView("#negotiationsView");
         this.messageView = new messageView("#messageView");
+        this.SUNDAY = 0;
+        this.SATURDAY = 6;
         this.inputDate = document.querySelector("#data");
         this.inputAmount = document.querySelector("#amount");
         this.inputValue = document.querySelector("#valor");
@@ -14,14 +16,17 @@ export class NegotiationController {
     }
     add() {
         const negotiation = this.createNegotiation();
-        if (negotiation.date.getDay() > 0 && negotiation.date.getDay() < 6) {
-            this.negotiations.add(negotiation);
-            this.cleanForm();
-            this.updateView();
+        if (!this.isWorkingDay(negotiation.date)) {
+            this.messageView.update("Only accept trades on working days.");
+            return;
         }
-        else {
-            this.messageView.update('Only accept trades on working days.');
-        }
+        this.negotiations.add(negotiation);
+        this.cleanForm();
+        this.updateView();
+    }
+    isWorkingDay(date) {
+        const day = date.getDay();
+        return day > this.SUNDAY && day < this.SATURDAY;
     }
     createNegotiation() {
         const regExp = /-/g;
