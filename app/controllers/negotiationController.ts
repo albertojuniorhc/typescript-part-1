@@ -1,3 +1,4 @@
+import { DaysOfWeek } from "../enums/daysOfWeek.js";
 import { Negotiation } from "../models/negotiation.js";
 import { Negotiations } from "../models/negotiations.js";
 import { messageView } from "../views/messageView.js";
@@ -10,8 +11,6 @@ export class NegotiationController {
   private negotiations: Negotiations = new Negotiations();
   private negotiationsView = new NegotiationsView("#negotiationsView");
   private messageView = new messageView("#messageView");
-  private SUNDAY = 0;
-  private SATURDAY = 6;
 
   constructor() {
     this.inputDate = document.querySelector("#data");
@@ -33,7 +32,7 @@ export class NegotiationController {
 
   private isWorkingDay(date: Date) {
     const day = date.getDay();
-    return day > this.SUNDAY && day < this.SATURDAY;
+    return day > DaysOfWeek.SUNDAY && day < DaysOfWeek.SATURDAY;
   }
 
   private createNegotiation(): Negotiation {
