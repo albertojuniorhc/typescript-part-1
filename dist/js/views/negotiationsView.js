@@ -10,7 +10,6 @@ export class NegotiationsView extends View {
                 <th>VALOR</th>
             </tr>
         </thead>
-    
     <tbody>
       ${model
             .list()

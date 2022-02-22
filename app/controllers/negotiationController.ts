@@ -8,8 +8,8 @@ export class NegotiationController {
   private inputAmount: HTMLInputElement;
   private inputValue: HTMLInputElement;
   private negotiations: Negotiations = new Negotiations();
-  private negotiationsView = new NegotiationsView('#negotiationsView');
-  private messageView = new messageView('#messageView');
+  private negotiationsView = new NegotiationsView("#negotiationsView");
+  private messageView = new messageView("#messageView");
 
   constructor() {
     this.inputDate = document.querySelector("#data");
@@ -22,7 +22,7 @@ export class NegotiationController {
     const negotiation = this.createNegotiation();
     this.negotiations.add(negotiation);
     this.negotiationsView.update(this.negotiations);
-    this.messageView.update('Trading successfully added!')
+    this.messageView.update("Trading successfully added!");
     this.cleanForm();
   }
 
