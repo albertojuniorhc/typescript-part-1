@@ -7,7 +7,4 @@ export class View {
         console.log(template);
         this.element.innerHTML = template;
     }
-    template(model) {
-        throw Error('Child class must deploy the method template.');
-    }
 }
