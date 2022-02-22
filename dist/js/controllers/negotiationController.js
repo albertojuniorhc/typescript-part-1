@@ -14,8 +14,7 @@ export class NegotiationController {
         this.negotiationsView.update(this.negotiations);
     }
     add() {
-        const negotiationTemp = new Negotiation(null, 0, 0);
-        const negotiation = negotiationTemp.createFrom(this.inputDate.value, this.inputAmount.value, this.inputValue.value);
+        const negotiation = Negotiation.createFrom(this.inputDate.value, this.inputAmount.value, this.inputValue.value);
         if (!this.isWorkingDay(negotiation.date)) {
             this.messageView.update("Only accept trades on working days.");
             return;

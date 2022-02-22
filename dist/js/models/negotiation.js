@@ -11,7 +11,7 @@ export class Negotiation {
         const date = new Date(this._date.getTime());
         return date;
     }
-    createFrom(dateString, amountString, valueString) {
+    static createFrom(dateString, amountString, valueString) {
         const regExp = /-/g;
         const date = new Date(dateString.replace(regExp, ","));
         const amount = parseInt(amountString);

@@ -20,8 +20,7 @@ export class NegotiationController {
   }
 
   public add(): void {
-    const negotiationTemp = new Negotiation(null, 0, 0);
-    const negotiation = negotiationTemp.createFrom(
+    const negotiation = Negotiation.createFrom(
       this.inputDate.value,
       this.inputAmount.value,
       this.inputValue.value
